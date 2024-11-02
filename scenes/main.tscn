@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bydqm2uaypf4h"]
+
+[ext_resource type="PackedScene" uid="uid://bcjovrbjytgnt" path="res://scenes/board.tscn" id="1_25fiq"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Board" parent="." instance=ExtResource("1_25fiq")]
+offset_right = 1024.0
+offset_bottom = 1024.0
