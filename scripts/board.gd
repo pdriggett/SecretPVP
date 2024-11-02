@@ -12,7 +12,7 @@ var cellReference = preload("res://scenes/cell.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	reset(10,10)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,7 +40,11 @@ func reset(columns: int, rows: int) -> void:
 	#	else:
 	#		pass
 			
+	for cell in grid.get_children():
+		cell.clear()
+		
 	grid.columns = columns
 
 func cell_pressed(cell) -> void:
-	print("Cell pressed signal received: " + cell.name)
+	if mode == BOARD_MODE.PLACEMENT:
+		cell.set_base()
