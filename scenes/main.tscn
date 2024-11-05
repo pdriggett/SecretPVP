@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bcjovrbjytgnt" path="res://scenes/board.tscn" id="1_25fiq"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_jnc6k"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("join_game_button")]
 script = ExtResource("1_jnc6k")
+join_game_button = NodePath("Panel/Join Game")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_right = 1024.0
@@ -17,5 +18,31 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 4
 text = "Reset"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(50, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 475.0
+offset_top = 269.0
+offset_right = 575.0
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Join Game" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.5
+offset_right = 38.5
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "Join Game"
 
 [connection signal="pressed" from="HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
